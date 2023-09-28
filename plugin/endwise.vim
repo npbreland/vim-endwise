@@ -88,6 +88,11 @@ augroup endwise " {{{1
         \ let b:endwise_words = 'struct,sig,begin,object,do,match,try' |
         \ let b:endwise_pattern = '\zs\<&\>\ze\%(.*\%(end\|done\|with\)\)\@!.*$' |
         \ let b:endwise_syngroups = 'ocamlStruct,ocamlStructEncl,ocamlSig,ocamlSigEncl,ocamlObject,ocamlLCIdentifier,ocamlKeyword,ocamlDo,ocamlEnd,'
+  autocmd FileType php
+      \ let b:endwise_addition = '}' |
+      \ let b:endwise_words = 'if,else,elseif,while,for,foreach,switch,function,class,trait,namespace' |
+      \ let b:endwise_pattern = '^\s*\zs\%(if\|else\|elseif\|while\|for\|foreach\|switch\|function\|class\|trait\|namespace\)\>' |
+      \ let b:endwise_syngroups = 'phpConditional,phpLoop,phpFunction,phpClass,phpNamespace,phpRepeat,phpInclude'
   autocmd FileType * call s:abbrev()
   autocmd CmdwinEnter * call s:NeutralizeMap()
   autocmd VimEnter * call s:DefineMap()
