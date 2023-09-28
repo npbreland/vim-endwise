@@ -91,7 +91,7 @@ augroup endwise " {{{1
   autocmd FileType php
       \ let b:endwise_addition = '}' |
       \ let b:endwise_words = 'if,else,elseif,while,for,foreach,switch,function,class,trait,namespace' |
-      \ let b:endwise_pattern = '^\s*\zs\%(if\|else\|elseif\|while\|for\|foreach\|switch\|function\|class\|trait\|namespace\)\>' |
+      \ let b:endwise_pattern = '^\s*\zs\%(if\|else\|elseif\|while\|for\|foreach\|switch\|class\|trait\|namespace\)\>\|^\s*function\s\+\w\+\s*(\s*\%([^{]*{\)\@!' |
       \ let b:endwise_syngroups = 'phpConditional,phpLoop,phpFunction,phpClass,phpNamespace,phpRepeat,phpInclude'
   autocmd FileType * call s:abbrev()
   autocmd CmdwinEnter * call s:NeutralizeMap()
